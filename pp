@@ -41,7 +41,7 @@ cat << EOF >> "$TEMP_FILE"
 
 ; ModuleID = '$INPUT_FILE'
 source_filename = "$INPUT_FILE"
-target triple = "x86_64-apple-macosx10.12.0"
+target triple = "$(clang -v 2>&1 | grep Target | cut -d " " -f2)"
 
 ; Function Attrs: nounwind ssp uwtable
 define i32 @main() #0 {
@@ -52,4 +52,4 @@ define i32 @main() #0 {
 
 EOF
 
-clang "$TEMP_FILE" -o "$OUTPUT_FILE"
+clang -Wno-override-module "$TEMP_FILE" -o "$OUTPUT_FILE"
