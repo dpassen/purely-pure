@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -o errexit
 set -o nounset
@@ -40,8 +40,7 @@ done < "$INPUT_FILE"
 cat << EOF >> "$TEMP_FILE"
 
 ; ModuleID = '$INPUT_FILE'
-source_filename = "$INPUT_FILE"
-target triple = "$(clang -v 2>&1 | grep Target | cut -d " " -f2)"
+target triple = "$(clang -v 2>&1 | awk -F' ' '/Target/{print $NF}')"
 
 ; Function Attrs: nounwind ssp uwtable
 define i32 @main() #0 {
