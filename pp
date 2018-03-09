@@ -22,10 +22,10 @@ while getopts ":o:" opt; do
     esac
 done
 
-INPUT_FILE=${@:$OPTIND:1}
+INPUT_FILE=${*:$OPTIND:1}
 TEMP_DIR=".${0##*/}-$$";
 mkdir "$TEMP_DIR";
-trap "rm -rf $TEMP_DIR" EXIT
+trap 'rm -rf $TEMP_DIR' EXIT
 TEMP_FILE="$TEMP_DIR/$INPUT_FILE.ll"
 
 if [ -z "$INPUT_FILE" ]; then
