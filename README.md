@@ -11,15 +11,15 @@ Whatever you like, it doesn't matter.
 ## How to Use
 
 ```shell
-./pp -o /path/to/output.file /path/to/input.file
-./path/to/output.file
+$ ./pp -o /path/to/output.file /path/to/input.file
+$ ./path/to/output.file
 ```
 
 or
 
 ```shell
-./pp /path/to/input.file
-./a.out
+$ ./pp /path/to/input.file
+$ ./a.out
 ```
 
 ## Frequently Asked Questions
