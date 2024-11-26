@@ -2,6 +2,7 @@
 
 set -o errexit
 set -o nounset
+set -o pipefail
 
 OPTIND=1
 OUTPUT_FILE=a.out
